@@ -1,7 +1,9 @@
-import {useState} from 'react'
+import { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { createPost } from '../actions/postActions'
 
-
-const PostsForm = () => {
+const PostsForm = ({createPost}) => {
     const [inputValue, setValue] = useState({title:'',body:''});
     
     const onChange = function(event){
@@ -11,15 +13,9 @@ const PostsForm = () => {
 
     const onSubmit = async function(event){
         event.preventDefault();
+        console.log(inputValue, 'IV')
         const postData = inputValue;
-        
-        const res = await fetch('https://jsonplaceholder.typicode.com/posts', 
-                                {method:'POST', 
-                                headers:{'content-type':'application/json'},
-                                body:JSON.stringify(postData)});
-        const data = await res.json();
-        console.log(data)
-
+        createPost(postData)
     }
 
     return (
@@ -42,4 +38,8 @@ const PostsForm = () => {
     );
 }
 
-export default PostsForm;
+PostsForm.propTypes = {
+    createPost: PropTypes.func.isRequired
+}
+
+export default connect(null,{ createPost })(PostsForm);
