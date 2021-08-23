@@ -21,7 +21,7 @@ const PostsForm = ({createPost}) => {
     return (
         <div>
             <h1>Add Post</h1>
-            <form onSubmit={onSubmit} >
+            <form onSubmit={onSubmit} data-testid='add-task-form'>
                 <div>
                     <label htmlFor='title'>Title</label><br/>
                     <input name='title' type='text' value={inputValue.title} onChange={onChange}/>
