@@ -5,7 +5,7 @@ const initialState = {
     item:{}
 }
 
-export default function (state = initialState, action){
+export default function reducerSwitch (state = initialState, action){
     switch(action.type){
         case FETCH_POSTS:
             console.log('FETCH_POSTS - Reducer', state)

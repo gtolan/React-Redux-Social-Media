@@ -7,16 +7,16 @@ const Posts = (props) => {
     
     useEffect(() => {
        props.fetchPosts()  
-       console.log(props);
-    }, [fetchPosts])
+       //console.log(props);
+    }, []) //
 
     // useEffect(() => {
     //     props.updateState()
     // },[props.newPost])
-
+/* // post.title */
     const postItems =
     props.posts && props.posts.length > 0 ? (props.posts.map(post => (
-        <p key={post.id}>{post.title}</p>
+        <p className="list-item" data-testid={`list-item-${post.id}`} key={post.id}>{post.id}</p>
     ))) : ('No posts');
 
     return (
