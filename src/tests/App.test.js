@@ -1,4 +1,4 @@
-import { render, screen, waitFor, findByText } from '@testing-library/react';
+import { render, screen, waitFor} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import App from '../App';
 
@@ -15,13 +15,11 @@ describe('App', () => {
   test('Shows the add task button', ()=>{
     render(<App />);
     expect(screen.getByText('Submit'))
-   // expect(queryByTestId('add-task-form')).toBeInTheDocument()
   })
-//
+  //
   test('Shows the add task form on load', ()=>{
     const {queryByTestId} = render(<App />);
-   // expect(screen.getByText('Add'))
-   expect(queryByTestId('add-task-form')).toBeInTheDocument()
+    expect(queryByTestId('add-task-form')).toBeInTheDocument()
   })
 
   test('Shows No posts before fetch', async() => {

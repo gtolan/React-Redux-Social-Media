@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createPost } from '../actions/postActions'
+import { createPost } from '../store/actions/postActions'
 
 const PostsForm = ({createPost}) => {
     const [inputValue, setValue] = useState({title:'',body:''});
