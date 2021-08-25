@@ -71,9 +71,15 @@ div.homepage-header{
 }
 }
 
+@media screen and (min-width: 380px) {
+    div.homepage-header .container-fluid .container-fluid.title-text h1{ 
+font-size: 4.05rem;
+}
+}
+
 @media screen and (min-width: 600px) {
     div.homepage-header .container-fluid .container-fluid.title-text h1 {
-        font-size: 65px;
+        font-size: 75px;
     }
 }
 
