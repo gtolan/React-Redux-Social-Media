@@ -6,7 +6,6 @@
  * @link https://github.com/jonsuh/hamburgers
  */
  .hamburger {
-    padding: 15px 15px;
     display: inline-block;
     cursor: pointer;
     transition-property: opacity, filter;
@@ -26,12 +25,12 @@
     .hamburger.is-active .hamburger-inner,
     .hamburger.is-active .hamburger-inner::before,
     .hamburger.is-active .hamburger-inner::after {
-      background-color: #000; }
+      background-color:white; }
   
   .hamburger-box {
     width: 40px;
     height: 24px;
-    display: inline-block;
+    display: block;
     position: relative; }
   
   .hamburger-inner {
@@ -41,7 +40,7 @@
     .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
       width: 40px;
       height: 4px;
-      background-color: #000;
+      background-color:white;
       border-radius: 4px;
       position: absolute;
       transition-property: transform;
@@ -83,4 +82,37 @@
     .hamburger--vortex.is-active .hamburger-inner::after {
       bottom: 0;
       transform: rotate(90deg); }
-  
+
+
+      
+
+  nav.navbar {
+    background-color:#1d9bf0 !important;
+      .container-fluid{
+          .navbar-brand{
+              img.fade-transform-animaton{
+                    animation-name: fadeOutLeftTop;
+                    animation-duration: 2s;
+                    animation-fill-mode: forwards;
+                    animation-iteration-count: infinite;
+                    
+              }
+          }
+      }
+
+  }
+  @keyframes  fadeOutLeftTop {
+    0%{
+      transform:scale(.3) rotateY(180deg) ;
+      transform-origin: right;
+    }
+    50%{
+      transform: scale(1) translate(-8px,-8px) rotateY(180deg);
+     
+    }
+    to{
+      transform:scale(.1) translate(-25px,-32px) rotateY(180deg);
+      transform-origin: top;
+      
+    }
+  }

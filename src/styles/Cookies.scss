@@ -1,0 +1,41 @@
+
+.cookies-container.bg-dark{
+    position: fixed;
+    bottom: 0;
+        p.text-white{
+            font-size: 13px;
+        }
+        button.rounded-btn.w-100.font-weight-bold{
+            color:white;
+            background-color: rgb(33, 37, 41);
+            border-color: white;
+            border-radius: 100px;
+            outline: none;
+            min-height: 36px;
+            font-weight: 700 !important;
+            border-bottom-style: solid;
+            border-style: solid;
+            border-width: thin;
+            &:hover{
+                background-color: white;
+                color: black;
+            }
+        }
+
+}
+
+@media only screen and (min-width: 600px) {
+    div.cookies-container.flex-column{
+        flex-direction: row !important;
+
+            p.text-white{
+                margin-bottom: 0;
+                margin-right: 20px;
+            }
+            button.rounded-btn.bg-dark {
+                width: 25%;
+                max-width: 100px;
+            }
+
+        }
+  }
