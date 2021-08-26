@@ -13,7 +13,7 @@ const Posts = (props) => {
     //Mock version
     useEffect(() => {
        props.fetchMockPosts()  
-    },[]) 
+    }) 
 
 
     const postItems =
@@ -27,7 +27,7 @@ const Posts = (props) => {
             </span>
             <img src={post.owner.picture} alt="Owner avatar" width="50" height="50" className='avatar pic - person' />
             {/* <span>{post}</span> */}
-            <img src={post.image} className='avatar for post' alt="Post picture" width="150" height="150"  />
+            <img src={post.image} className='avatar for post' alt="Post avatar icon" width="150" height="150"  />
             </p>
     ))) : ('No posts');
 

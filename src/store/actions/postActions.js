@@ -1,6 +1,6 @@
 //1 Action
 
-import { FETCH_POSTS,NEW_POSTS, FETCH_MOCK_POSTS } from './types';
+import { FETCH_POSTS,NEW_POSTS, FETCH_MOCK_POSTS, WELCOME_MODAL_OPEN } from './types';
 import postListApi from '../../mock/posts-list-api'
 
 
@@ -51,6 +51,26 @@ export const createPost = (postData) => async(dispatch) => {
     dispatch({
         type: NEW_POSTS,
         payload: {...data, id}
+    })
+}
+
+export const closeWelcomeModal = (currentBool) => async(dispatch) => { 
+    console.log('closeWelcomeModal')
+    currentBool = !currentBool
+    dispatch({
+        type: WELCOME_MODAL_OPEN,
+        payload: currentBool
+    })
+}
+
+cookiesHidden
+
+export const closeCookiesBanner = (currentBool) => async(dispatch) => { 
+    console.log('close cookies banner')
+    currentBool = !currentBool
+    dispatch({
+        type: HIDE_COOKIES,
+        payload: currentBool
     })
 }
 
