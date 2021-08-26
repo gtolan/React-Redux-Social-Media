@@ -9,6 +9,11 @@
         animation-duration: .3s;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
+        &.hide {
+            display: none !important;
+    }
+    
+
         button.rounded-btn.w-100.font-weight-bold{
             color:white;
             background-color: rgb(33, 37, 41);

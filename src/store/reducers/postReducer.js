@@ -1,4 +1,4 @@
-import { FETCH_POSTS,NEW_POSTS,FETCH_MOCK_POSTS,WELCOME_MODAL_OPEN } from '../actions/types';
+import { FETCH_POSTS,NEW_POSTS,FETCH_MOCK_POSTS,WELCOME_MODAL_OPEN,HIDE_COOKIES } from '../actions/types';
 
 const initialState = {
     items:[],
@@ -35,10 +35,10 @@ export default function reducerSwitch (state = initialState, action){
                     welcomeModalOpen:![action.payload.welcomeModalOpen]
                     }
         case HIDE_COOKIES:
-                        console.log('HIDE_COOKIES - Reducer', state, ![action.payload.welcomeModalOpen])
+                console.log('HIDE_COOKIES - Reducer123', state, action.payload,'pay')
                     return {
                     ...state,
-                    cookiesHidden:![action.payload.cookiesHidden]
+                    cookiesHidden:action.payload
                     }
         default:
             return state;

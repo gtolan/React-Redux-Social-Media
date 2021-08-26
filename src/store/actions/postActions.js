@@ -1,6 +1,6 @@
 //1 Action
 
-import { FETCH_POSTS,NEW_POSTS, FETCH_MOCK_POSTS, WELCOME_MODAL_OPEN } from './types';
+import { FETCH_POSTS,NEW_POSTS, FETCH_MOCK_POSTS, WELCOME_MODAL_OPEN, HIDE_COOKIES } from './types';
 import postListApi from '../../mock/posts-list-api'
 
 
@@ -63,7 +63,7 @@ export const closeWelcomeModal = (currentBool) => async(dispatch) => {
     })
 }
 
-cookiesHidden
+//cookiesHidden
 
 export const closeCookiesBanner = (currentBool) => async(dispatch) => { 
     console.log('close cookies banner')

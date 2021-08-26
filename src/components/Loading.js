@@ -29,7 +29,7 @@ const Loading = () => {
     const hidePage = () =>{
         setTimeout(()=>{
                 const page = loaderPage.current;
-                page.className = "loading disolve-page";
+                page && (page.className = "loading disolve-page")
                 showModal()
                     },1500)
                     
@@ -41,7 +41,7 @@ const Loading = () => {
 
     useEffect(() => {    
         hideLoader();
-    },[modalState])
+    })
 
 
     const modalTitle = 'Welcome to Tweeter';
