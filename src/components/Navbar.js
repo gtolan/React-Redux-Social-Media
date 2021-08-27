@@ -1,8 +1,20 @@
 import '../styles/Navbar.scss';
 import birdIcon from '../styles/bird.svg';
 import musicNote from '../styles/musical-note.svg';
+import {useSelector,useDispatch} from 'react-redux';
 
 const Navbar = () => {
+
+    const hamburgerState = useSelector(state => state.posts.hamburgerActive)
+    const dispatch = useDispatch();
+
+    const toggleHamburger = () => {
+        dispatch({type:'TOGGLE_HAMBURGER', payload: hamburgerState})
+    }
+
+    
+
+
     return (
 <div>
     <nav className="navbar navbar-expand-lg navbar-light bg-primary ">
@@ -14,7 +26,7 @@ const Navbar = () => {
             {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button> */}
-            <button className="hamburger hamburger--vortex" type="button">
+            <button className={`hamburger hamburger--vortex ` + (hamburgerState ? 'huh' : 'is-active')} onClick={toggleHamburger} type="button">
                 <span className="hamburger-box">
                     <span className="hamburger-inner"></span>
                 </span>

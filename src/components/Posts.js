@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchPosts, fetchMockPosts } from '../store/actions/postActions';
 import PropTypes from 'prop-types';
-
+import '../styles/Tweets.scss';
+import ProfileBanner from '../components/ProfileBanner';
 
 const Posts = (props) => {
     //Live version without API throttle
@@ -12,27 +13,35 @@ const Posts = (props) => {
     
     //Mock version
     useEffect(() => {
-       props.fetchMockPosts()  
-    }) 
+        // const getPosts = async()=>{
+        // console.log('POSTS, use Effect')
+        // const data = await props.fetchMockPosts() 
+        // console.log('dataPost effect', data)
+        // } 
+        // getPosts()
+        props.fetchMockPosts() 
+
+    },[]) 
 
 
     const postItems =
     props.posts && props.posts.length > 0 ? (props.posts.map(post => (
-        <p className="list-item" data-testid={`list-item-${post.title}`} key={post.id}>
+        <p className="list-item" data-testid={`list-item-${post?.title}`} key={post?.id}>
             <span>{post.title} <br/>
-            {post.owner.firstName}<br/>
-            {post.owner.lastName}<br/>
-            {post.picture}<br/>
-            {post.publishDate}<br/>
+            {post?.owner?.firstName}<br/>
+            {post?.owner?.lastName}<br/>
+            {post?.picture}<br/>
+            {post?.publishDate}<br/>
             </span>
-            <img src={post.owner.picture} alt="Owner avatar" width="50" height="50" className='avatar pic - person' />
+            <img src={post?.owner?.picture} alt="Owner avatar" width="50" height="50" className='avatar pic - person' />
             {/* <span>{post}</span> */}
-            <img src={post.image} className='avatar for post' alt="Post avatar icon" width="150" height="150"  />
+            <img src={post?.image} className='avatar for post' alt="Post avatar icon" width="150" height="150"  />
             </p>
     ))) : ('No posts');
 
     return (
         <div>
+            {props.posts ? (<ProfileBanner profile={props.posts[0]}/> ) : ''}
             <h1>Posts</h1>
             { postItems }
         </div>

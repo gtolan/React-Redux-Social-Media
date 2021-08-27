@@ -87,7 +87,11 @@
       
 
   nav.navbar {
+    z-index: 10;
     background-color:#1d9bf0 !important;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
       .container-fluid{
           .navbar-brand{
               img.fade-transform-animaton{

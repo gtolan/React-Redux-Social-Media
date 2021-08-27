@@ -13,10 +13,10 @@ function App() {
     <Provider store={store}>
        <Router>
       <div className="App">
-      {/* <Route path='/' exact render={HomePage} /> */}
-      <Route path="/" exact >
-        <HomePage />
-      </Route>
+      <Route path='/' exact component={HomePage} />
+      {/* <Route path="/" exact >
+        <HomePage />   render={HomePage}
+      </Route> */}
       <Route path='/news' component={News} />
 {/*         
         <Navbar />

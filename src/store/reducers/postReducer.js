@@ -1,10 +1,13 @@
-import { FETCH_POSTS,NEW_POSTS,FETCH_MOCK_POSTS,WELCOME_MODAL_OPEN,HIDE_COOKIES } from '../actions/types';
+import { FETCH_POSTS,NEW_POSTS,FETCH_MOCK_POSTS,WELCOME_MODAL_OPEN,HIDE_COOKIES,TOGGLE_HAMBURGER, ADD_TWEET_FORM, CREATE_TWEET} from '../actions/types';
 
 const initialState = {
     items:[],
     item:{}, 
     welcomeModalOpen:true,
-    cookiesHidden:false
+    cookiesHidden:false,
+    hamburgerActive:false,
+    formData:{title:'', body:''},
+    profile:false
 }
 
 export default function reducerSwitch (state = initialState, action){
@@ -16,10 +19,13 @@ export default function reducerSwitch (state = initialState, action){
                     items: action.payload
                 }
         case FETCH_MOCK_POSTS:
-                console.log('FETCH_MOCK_POSTS - Reducer', state)
+                console.log('FETCH_MOCK_POSTS - Reducer', state, action.payload.data);
+                const profile = action.payload.data[0];
+                console.log(profile, 'on Fetch Mock')
                 return {
                     ...state,
-                    items: action.payload.data
+                    items: [...action.payload.data,...state.items],
+                    profile
                 }
         case NEW_POSTS:
                 console.log('NEW_POSTS - Reducer', state)
@@ -40,6 +46,29 @@ export default function reducerSwitch (state = initialState, action){
                     ...state,
                     cookiesHidden:action.payload
                     }
+        case TOGGLE_HAMBURGER :
+            console.log('THR')
+            return {
+                ...state,
+                hamburgerActive: !action.payload
+            }
+        case ADD_TWEET_FORM :
+                console.log('FORM DATA',  state.formData, action.payload);
+                return {
+                    ...state,
+                    formData: {...state.formData, ...action.payload}
+                }
+        case CREATE_TWEET:
+                // const addToItems = items.shift(state.formData)
+                // const items = state.items.shift(state.formData);
+                console.log('Create payload', action.payload);
+                return {
+                    // ...state,
+                    // items: [action.payload,...state.items]
+                    ...state,
+                     items: [action.payload,...state.items]
+                }
+        
         default:
             return state;
     }

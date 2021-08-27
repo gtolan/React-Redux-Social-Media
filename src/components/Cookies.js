@@ -7,7 +7,6 @@ const Cookies = () => {
     const modalState = useSelector(state => state.posts.welcomeModalOpen)
     const dispatch = useDispatch();
 
-
     const cookiesState = useSelector(state => state.posts.cookiesHidden)
  
     const hideCookieAlert = () =>{

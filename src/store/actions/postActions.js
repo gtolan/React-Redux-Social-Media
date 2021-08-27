@@ -1,6 +1,6 @@
 //1 Action
 
-import { FETCH_POSTS,NEW_POSTS, FETCH_MOCK_POSTS, WELCOME_MODAL_OPEN, HIDE_COOKIES } from './types';
+import { FETCH_POSTS,NEW_POSTS, FETCH_MOCK_POSTS, WELCOME_MODAL_OPEN, HIDE_COOKIES, TOGGLE_HAMBURGER, ADD_TWEET_FORM, CREATE_TWEET } from './types';
 import postListApi from '../../mock/posts-list-api'
 
 
@@ -67,10 +67,41 @@ export const closeWelcomeModal = (currentBool) => async(dispatch) => {
 
 export const closeCookiesBanner = (currentBool) => async(dispatch) => { 
     console.log('close cookies banner')
-    currentBool = !currentBool
+    currentBool = !currentBool;
+    console.log('THR')
     dispatch({
         type: HIDE_COOKIES,
         payload: currentBool
     })
 }
+
+//toggle hamburger menu - posts page
+
+export const toggleHamburger = (currentBool) =>(dispatch) =>{
+
+    console.log('toggle hamburger menu')
+    currentBool = !currentBool
+    dispatch({
+        type: TOGGLE_HAMBURGER,
+        payload: currentBool
+    })
+
+}
+
+//post tweet 
+export const addTweet = (formData) => (dispatch) => {
+    dispatch({
+        type:ADD_TWEET_FORM ,
+        payload:formData
+    })
+}
+
+//create tweet
+export const createTweet = (formData) => (dispatch) => {
+    dispatch({
+        type:CREATE_TWEET,
+        payload:formData
+    })
+
+};
 
