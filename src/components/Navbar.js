@@ -1,6 +1,6 @@
 import '../styles/Navbar.scss';
-import birdIcon from '../styles/bird.svg';
-import musicNote from '../styles/musical-note.svg';
+import birdIcon from '../styles/images/bird.svg';
+import musicNote from '../styles/images/musical-note.svg';
 import {useSelector,useDispatch} from 'react-redux';
 
 const Navbar = () => {

@@ -1,7 +1,7 @@
 import '../styles/HomePage.scss';
 import {useEffect, useRef} from 'react';
-import birdIconBlue from '../styles/bird-blue.svg';
-import musicNoteBlue from '../styles/musical-note-blue.svg';
+import birdIconBlue from '../styles/images/bird-blue.svg';
+import musicNoteBlue from '../styles/images/musical-note-blue.svg';
 import Modal from './Modal';
 import {useSelector} from 'react-redux';
 
@@ -13,20 +13,19 @@ const Loading = () => {
 
     const hideLoader =() => {
         setTimeout(()=>{
-                console.log('hide loader')
                 const icon = twetterIcon.current; // corresponding DOM node    
                 icon.className = "show-icon";
                 const span = spinner.current; // corresponding DOM node    
                 span.className = "spinner-border fade";
                 hidePage()
-                    },1400)
+                    },400)
     }
 
     const hidePage = () =>{
         setTimeout(()=>{
                         const page = loaderPage.current;
                         page && (page.className = "loading disolve-page")
-                        },1500)
+                        },500)
     }
 
     useEffect(() => {    

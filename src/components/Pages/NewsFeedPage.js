@@ -1,11 +1,12 @@
-import Posts from './Posts';
-import AddTweet from './AddTweet';
-import Navbar from './Navbar';
+import Tweets from '../Tweets';
+// import AddTweet from '../AddTweet';
+import Navbar from '../Navbar';
 import { useDispatch} from 'react-redux';
 import {useEffect} from 'react';
 
 
-const News = () => {
+
+const NewsFeedPage = () => {
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -20,12 +21,11 @@ const News = () => {
         <div>
         <Navbar />
         <header className="App-header">
-            <AddTweet/>
-            <hr/>
-            <Posts />
+            {/* <AddTweet/> */}
+            <Tweets />
         </header>
         </div>
     )
 }
 
-export default News;
+export default NewsFeedPage;

@@ -1,4 +1,4 @@
-import twit from '../styles/tweet-home.png';
+import twit from '../styles/images/tweet-home.png';
 import '../styles/SignUpButtons.scss';
 
 

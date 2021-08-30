@@ -1,9 +1,9 @@
-import '../styles/HomePage.scss';
-import SignUpButtons from '../components/SignUpButtons.js';
-import WelcomeBanner from '../components/WelcomeBanner.js';
-import birdIconBlue from '../styles/bird-blue.svg';
-import musicNoteBlue from '../styles/musical-note-blue.svg';
-import Loading from './Loading';
+import '../../styles/HomePage.scss';
+import SignUpButtons from '../SignUpButtons.js';
+import WelcomeBanner from '../WelcomeBanner.js';
+import birdIconBlue from '../../styles/images/bird-blue.svg';
+import musicNoteBlue from '../../styles/images/musical-note-blue.svg';
+import Loading from '../Loading';
 import {useSelector} from 'react-redux';
 
 

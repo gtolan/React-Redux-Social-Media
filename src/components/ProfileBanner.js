@@ -3,7 +3,7 @@ const ProfileBanner = ({profile}) => {
 
     return (
         
-        <div>
+        <div className="profile-container">
         {profile && (<div><div className="d-flex flex-column profile-banner">
             <div className="jumbotron-image">
                 <div className="banner-wrapped">
@@ -17,7 +17,19 @@ const ProfileBanner = ({profile}) => {
             
         </div>
             <div className='profile-info'>
-                {profile.owner.firstName}
+                <div className="left-col">
+                    <h4>{profile.owner.firstName}</h4>
+                    <h5>{`@` + profile.owner.firstName}</h5>
+                </div>
+                <div className="right-col">
+                    <button className="follow-btn">Follow</button>
+                </div>
+            </div>
+            <div className='profile-followers'>
+                <p><strong>9,432</strong>Following</p> <p><strong>17,142</strong>Followers</p>
+            </div>
+            <div className="tweeters-nav">
+                <h5>Tweets</h5>
             </div>
         </div>
         )}

@@ -1,6 +1,6 @@
-import googleIcon from '../styles/googleIcon.svg';
-import appleIcon from '../styles/appleIcon.svg';
-import phoneCall from '../styles/phone-call.svg';
+import googleIcon from '../styles/images/googleIcon.svg';
+import appleIcon from '../styles/images/appleIcon.svg';
+import phoneCall from '../styles/images/phone-call.svg';
 import { Link } from 'react-router-dom';
 import '../styles/SignUpButtons.scss';
 
