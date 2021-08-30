@@ -21,7 +21,6 @@ export default function reducerSwitch (state = initialState, action){
         case FETCH_MOCK_POSTS:
                 console.log('FETCH_MOCK_POSTS - Reducer', state, action.payload.data);
                 const profile = action.payload.data[0];
-                console.log(profile, 'on Fetch Mock')
                 return {
                     ...state,
                     items: [...action.payload.data,...state.items],
@@ -30,28 +29,27 @@ export default function reducerSwitch (state = initialState, action){
         case NEW_POSTS:
                 console.log('NEW_POSTS - Reducer', state)
                 return {
-                ...state,
-                items: [action.payload,...state.items]
-
+                    ...state,
+                    items: [action.payload,...state.items]
                 }
         case WELCOME_MODAL_OPEN:
-                    console.log('WELCOME_MODAL_OPEN - Reducer', state, ![action.payload.welcomeModalOpen])
-                    return {
+                console.log('WELCOME_MODAL_OPEN - Reducer', state, ![action.payload.welcomeModalOpen])
+                return {
                     ...state,
                     welcomeModalOpen:![action.payload.welcomeModalOpen]
-                    }
+                }
         case HIDE_COOKIES:
                 console.log('HIDE_COOKIES - Reducer123', state, action.payload,'pay')
-                    return {
+                return {
                     ...state,
                     cookiesHidden:action.payload
-                    }
+                }
         case TOGGLE_HAMBURGER :
-            console.log('THR')
-            return {
-                ...state,
-                hamburgerActive: !action.payload
-            }
+                console.log('THR')
+                return {
+                    ...state,
+                    hamburgerActive: !action.payload
+                }
         case ADD_TWEET_FORM :
                 console.log('FORM DATA',  state.formData, action.payload);
                 return {
@@ -59,12 +57,8 @@ export default function reducerSwitch (state = initialState, action){
                     formData: {...state.formData, ...action.payload}
                 }
         case CREATE_TWEET:
-                // const addToItems = items.shift(state.formData)
-                // const items = state.items.shift(state.formData);
                 console.log('Create payload', action.payload);
                 return {
-                    // ...state,
-                    // items: [action.payload,...state.items]
                     ...state,
                      items: [action.payload,...state.items]
                 }

@@ -11,22 +11,12 @@ function App() {
 
   return (
     <Provider store={store}>
-       <Router>
-      <div className="App">
-      <Route path='/' exact component={HomePage} />
-      {/* <Route path="/" exact >
-        <HomePage />   render={HomePage}
-      </Route> */}
-      <Route path='/news' component={News} />
-{/*         
-        <Navbar />
-        <header className="App-header">
-          <PostsForm />
-          <hr/>
-          <Posts />
-        </header> */}
-        <Cookies />
-      </div>
+      <Router>
+        <div className="App">
+          <Route path='/' exact component={HomePage} />
+          <Route path='/news' component={News} />
+          <Cookies />
+        </div>
       </Router>
     </Provider>
   );
