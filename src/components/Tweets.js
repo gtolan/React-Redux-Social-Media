@@ -11,7 +11,7 @@ const Tweets = (props) => {
     // useEffect(() => {
     //    props.fetchPosts()  
     // }, []) 
-    
+    console.log(props.posts,props.profile)
     //Mock version
     useEffect(() => {
         // const getPosts = async()=>{
@@ -26,8 +26,9 @@ const Tweets = (props) => {
 
 
     const postItems =
-    props.posts && props.posts.length > 0 ? (props.posts.map(post => (
-        <li className="list-item" data-testid={`list-item-${post?.title}`} key={post?.id}>
+    props.posts && props.posts.length > 0 ? (props.posts.map((post, index) => (
+        index != 0 ? 
+        (<li className="list-item" data-testid={`list-item-${post?.title}`} key={post?.id}>
             <img src={post?.owner?.picture} alt="Owner avatar" width="50" height="50" className='avatar pic - person' />
 
             <div className="right-column">
@@ -37,7 +38,7 @@ const Tweets = (props) => {
                      </div>
                      <div className="image-content">
                          <ul className="image-tags">
-                             {post.tags && (post.tags.map(item => (<li>{item}</li>)))}
+                             {post.tags && (post.tags.map((item, id) => (<li key={id}>{item}</li>)))}
                         </ul>
                         <p className="post-text">{post.text}</p>
                         <div className="post-likes">
@@ -48,12 +49,12 @@ const Tweets = (props) => {
                      </div>
                 </div>
             </div>
-            </li>
+            </li>) : ''
     ))) : ('No posts');
 
     return (
         <div>
-            {props.posts ? (<ProfileBanner profile={props.posts[0]}/> ) : ''}
+            {props.profile ? (<ProfileBanner profile={props.profile}/> ) : ''}
             <ul className="tweet-list">
             { postItems }
             </ul>
@@ -69,7 +70,8 @@ Tweets.propTypes = {
 
 const mapStateToProps = state => ({
     posts : state.posts.items, //from reduce combine naming,
-    newPost : state.posts.item
+    newPost : state.posts.item,
+    profile: state.posts.items[0]
 })
 
 export default connect(mapStateToProps, { fetchPosts, fetchMockPosts })(Tweets);

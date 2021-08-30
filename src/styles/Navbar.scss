@@ -120,3 +120,30 @@
       
     }
   }
+
+  button.back-btn {
+    border-radius: 50%;
+    min-height: 36px;
+    padding: 0;
+    min-width: 36px;
+    border: 1px solid white;
+    margin-right: 12px;
+    box-shadow: grey 7px 6px 14px;
+    background-color: white;
+    img.back-arrow-icon{
+      margin-top: -3px;
+    }
+  }
+a.back-link {
+  margin-left: auto;
+}
+  button.add-tweet-btn {
+    background-color: white;
+    min-width: 150px;
+    border-radius: 35px;
+    border: 1px solid white;
+    font-size: 16px;
+    padding: 4px;
+    margin-right: 22px;
+    box-shadow: grey 7px 6px 14px;
+  }

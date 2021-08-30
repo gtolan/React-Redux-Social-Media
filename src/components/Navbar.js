@@ -1,7 +1,9 @@
 import '../styles/Navbar.scss';
 import birdIcon from '../styles/images/bird.svg';
 import musicNote from '../styles/images/musical-note.svg';
+import backArrow from '../styles/images/arrow.svg';
 import {useSelector,useDispatch} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -20,11 +22,17 @@ const Navbar = () => {
                         <img src={musicNote} alt='music note' className="fade-transform-animaton"/>
                         <img src={birdIcon} alt='bird logo' />
                     </a>
-                    <button className={`hamburger hamburger--vortex ` + (hamburgerState ? 'huh' : 'is-active')} onClick={toggleHamburger} type="button">
+                    <Link to='' className='back-link'>
+                        <button class='back-btn'>
+                                <img src={backArrow} alt="back arrow" className='back-arrow-icon'/>
+                        </button>
+                    </Link>
+                    <button className="add-tweet-btn">Add Tweet</button>
+                    {/* <button className={`hamburger hamburger--vortex ` + (hamburgerState ? 'huh' : 'is-active')} onClick={toggleHamburger} type="button">
                             <span className="hamburger-box">
                                 <span className="hamburger-inner"></span>
                             </span>
-                    </button>
+                    </button> */}
 
                 </div>
             </nav>
