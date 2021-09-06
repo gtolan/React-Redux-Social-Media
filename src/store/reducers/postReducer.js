@@ -58,10 +58,11 @@ export default function reducerSwitch (state = initialState, action){
                     formData: {...state.formData, ...action.payload}
                 }
         case CREATE_TWEET:
-                console.log('Create payload', action.payload);
+                console.log('Create payload', action.payload, ...state.items);
+                const tweet = {...state.profile,...action.payload}
                 return {
                     ...state,
-                     items: [action.payload,...state.items]
+                     items: [tweet,...state.items]
                 }
         
         default:

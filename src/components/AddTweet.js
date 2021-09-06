@@ -7,7 +7,7 @@ import { useSelector,useDispatch } from 'react-redux';
 const AddTweet = ({createPost}) => {
 
     const dispatch = useDispatch();
-    const title = useSelector(state => state.posts.formData.title)
+    const text = useSelector(state => state.posts.formData.text)
     const body = useSelector(state => state.posts.formData.body)
     const formData = useSelector(state => state.posts.formData)
 
@@ -39,7 +39,7 @@ const AddTweet = ({createPost}) => {
             <form onSubmit={onSubmit} className={addTweetOpen ? 'active' : 'not-active'}>
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label"></label>
-                <input type="text" className="form-control" aria-describedby="title text" name='title' value={title} placeholder='Add title' onChange={onChange}/>
+                <input type="text" className="form-control" aria-describedby="title text" name='text' value={text} placeholder='Add title' onChange={onChange}/>
             </div>
             <div className="mb-3">
                 <textarea id="formBody" className="form-control" placeholder="Whats happening?" name='body' value={body} onChange={onChange} />
