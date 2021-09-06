@@ -17,10 +17,10 @@ const SignUpButtons = () => {
     return (
         <div className='container-fluid sign-up-container'>
             {options.map(option => (
-                 <Link to="/news" className="btn-wrap" key={option.text}>
-                    <button className="sign-up-button" key={option.text}>
+                 <Link to="/news" className="btn-wrap" >
+                    <button className="sign-up-button" >
                       {option.type !== 'phone' ? (<img alt={option.text} src={option.icon ? option.icon : ''} className={`${option.type} icon-image`}  />) : ''}
-                      <p key={option.text}>{option.text}</p> 
+                      <p >{option.text}</p> 
                     </button>
                  </Link>
             ))}

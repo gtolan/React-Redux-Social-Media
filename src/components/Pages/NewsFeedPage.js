@@ -23,7 +23,7 @@ const NewsFeedPage = () => {
     }
 
     return (
-        <div>
+        <div >
         <Navbar />
         <header className="App-header">
             <Tweets />

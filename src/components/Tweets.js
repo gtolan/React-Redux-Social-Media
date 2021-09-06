@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { fetchPosts, fetchMockPosts } from '../store/actions/postActions';
 import PropTypes from 'prop-types';
 import '../styles/Tweets.scss';
@@ -11,7 +11,10 @@ const Tweets = (props) => {
     // useEffect(() => {
     //    props.fetchPosts()  
     // }, []) 
-    console.log(props.posts,props.profile)
+    const posts = useSelector(state => state.posts.items)
+    const fadeNewsFeed = useSelector(state => !state.posts.hamburgerActive)
+
+
     //Mock version
     useEffect(() => {
         // const getPosts = async()=>{
@@ -20,15 +23,26 @@ const Tweets = (props) => {
         // console.log('dataPost effect', data)
         // } 
         // getPosts()
-        props.fetchMockPosts() 
-
+        props.fetchMockPosts();
+    
     },[]) 
 
+    useEffect(() => {
+        // const getPosts = async()=>{
+        // console.log('POSTS, use Effect')
+        // const data = await props.fetchMockPosts() 
+        // console.log('dataPost effect', data)
+        // } 
+        // getPosts()
+        // props.fetchMockPosts();
+        console.log('RE-render tweets', posts)
+    },[posts]) 
+
+        console.log('render tweets', posts)
 
     const postItems =
-    props.posts && props.posts.length > 0 ? (props.posts.map((post, index) => (
-        index != 0 ? 
-        (<li className="list-item" data-testid={`list-item-${post?.title}`} key={post?.id}>
+    posts && posts.length > 0 ? (posts.map((post, index) => (
+        (<li className="list-item" data-testid={`list-item-${post?.image}`} key={post.image ? (post?.image + index) : (post.id + index)}>
             <img src={post?.owner?.picture} alt="Owner avatar" width="50" height="50" className='avatar pic - person' />
 
             <div className="right-column">
@@ -38,7 +52,7 @@ const Tweets = (props) => {
                      </div>
                      <div className="image-content">
                          <ul className="image-tags">
-                             {post.tags && (post.tags.map((item, id) => (<li key={id}>{item}</li>)))}
+                             {post.tags && (post.tags.map((item, id) => (<li key={post.id + id}>{item}</li>)))}
                         </ul>
                         <p className="post-text">{post.text}</p>
                         <div className="post-likes">
@@ -49,11 +63,11 @@ const Tweets = (props) => {
                      </div>
                 </div>
             </div>
-            </li>) : ''
+            </li>)
     ))) : ('No posts');
 
     return (
-        <div>
+        <div className={fadeNewsFeed ? 'news-feed' : 'news-feed-faded'}>
             {props.profile ? (<ProfileBanner profile={props.profile}/> ) : ''}
             <ul className="tweet-list">
             { postItems }
@@ -64,14 +78,14 @@ const Tweets = (props) => {
 
 Tweets.propTypes = {
     fetchPosts: PropTypes.func.isRequired,
-    posts: PropTypes.array.isRequired,
+    // posts: PropTypes.array.isRequired,
     newPost: PropTypes.object
 }
 
 const mapStateToProps = state => ({
-    posts : state.posts.items, //from reduce combine naming,
+    // posts : state.posts.items, //from reduce combine naming,
     newPost : state.posts.item,
-    profile: state.posts.items[0]
+    profile : state.posts.profile
 })
 
 export default connect(mapStateToProps, { fetchPosts, fetchMockPosts })(Tweets);

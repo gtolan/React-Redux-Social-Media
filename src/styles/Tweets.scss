@@ -276,3 +276,30 @@ form{
         }
         
     }
+
+
+    div.add-tweet-form {
+        form {
+            opacity: 0;
+        &.active{
+            top: calc(50vh - 175px);
+            left:10vw;
+            position: fixed;
+            min-width: 80vw;
+            min-height: 300px; 
+            transition: linear 1.5s;
+        opacity: 1;
+        }
+        }
+    }
+
+    div.news-feed-faded{
+        transition: linear 1.5s;
+        opacity: .2;
+        filter: contrast(0.5);
+    }
+    div.news-feed{
+        transition: linear 1.5s;
+        opacity: 1;
+        filter: none;
+    }

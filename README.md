@@ -3,6 +3,7 @@ React
 Redux
 React Testing Library
 useSelector
+useDispatch
 SCSS
 Bootstrap
 

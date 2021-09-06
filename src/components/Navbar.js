@@ -3,7 +3,7 @@ import birdIcon from '../styles/images/bird.svg';
 import musicNote from '../styles/images/musical-note.svg';
 import backArrow from '../styles/images/arrow.svg';
 import {useSelector,useDispatch} from 'react-redux';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCallback } from 'react';
 
 const Navbar = () => {

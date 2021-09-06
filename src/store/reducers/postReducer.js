@@ -21,9 +21,10 @@ export default function reducerSwitch (state = initialState, action){
         case FETCH_MOCK_POSTS:
                 console.log('FETCH_MOCK_POSTS - Reducer', state, action.payload.data);
                 const profile = action.payload.data[0];
+                const items = action.payload.data.splice(1);
                 return {
                     ...state,
-                    items: [...action.payload.data,...state.items],
+                    items: [...state.items,...items],
                     profile
                 }
         case NEW_POSTS:

@@ -1,15 +1,24 @@
+import React from 'react';
 
+
+// function isEqual(prev, next) {
+//     return prev.firstName === next.firstName
+//       && prev.image === next.image;
+//   }
+
+// React.memo(
 const ProfileBanner = ({profile}) => {
 
+    
     return (
         
         <div className="profile-container">
         {profile && (<div><div className="d-flex flex-column profile-banner">
             <div className="jumbotron-image">
                 <div className="banner-wrapped">
-                    <img className="profile-banner" alt="profile banner" src={profile.image} />
+                    <img className="profile-banner" alt="profile banner" src={profile?.image} />
                 </div>
-                <img className="profile-avatar" alt="profile avatar" src={profile.owner.picture} />
+                <img className="profile-avatar" alt="profile avatar" src={profile.owner?.picture} />
             </div>
             <div className='profile-info'>
                 {profile.firstName}
@@ -18,8 +27,8 @@ const ProfileBanner = ({profile}) => {
         </div>
             <div className='profile-info'>
                 <div className="left-col">
-                    <h4>{profile.owner.firstName}</h4>
-                    <h5>{`@` + profile.owner.firstName}</h5>
+                    <h4>{profile.owner?.firstName}</h4>
+                    <h5>{`@` + profile.owner?.firstName}</h5>
                 </div>
                 <div className="right-col">
                     <button className="follow-btn">Follow</button>
@@ -36,5 +45,6 @@ const ProfileBanner = ({profile}) => {
         </div>
     )
 }
+//)
 
 export default ProfileBanner;
