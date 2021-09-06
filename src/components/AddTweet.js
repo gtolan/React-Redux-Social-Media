@@ -23,11 +23,14 @@ const AddTweet = ({createPost}) => {
 
     const onSubmit = function(event){
         event.preventDefault();
-        const generateID = () => {
-            return Math.random() * (20000 - 200) + 200;
-        }
-        const id = generateID()
-        const addID = {id, ...formData}
+        // const generateID = () => {
+        //     return Math.random() * (20000 - 200) + 200;
+        // }
+        
+        // const id = generateID()
+        const id = (() => Math.random() * (20000 - 200) + 200)();
+        console.log(id, 'iife - arrow')
+        const addID = {id, ...formData};
         dispatch({
             type: 'CREATE_TWEET',
             payload: addID

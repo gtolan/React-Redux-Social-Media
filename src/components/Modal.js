@@ -13,7 +13,7 @@ const Modal = ({modalTitle, featureList,bodyTitle,closeWelcomeModal}) => {
     }
 
     return (
-        <div>
+        <div className='modal-wrapper'>
                 {modalState && (<div ref={modal} className={`modal-welcome-info ` + (modalState ? '' : 'loaded')}>
                 <div className="modal-welcome-header">
                     <h4>{modalTitle}</h4>

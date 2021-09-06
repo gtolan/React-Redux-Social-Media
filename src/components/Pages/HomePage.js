@@ -4,7 +4,7 @@ import WelcomeBanner from '../WelcomeBanner.js';
 import birdIconBlue from '../../styles/images/bird-blue.svg';
 import musicNoteBlue from '../../styles/images/musical-note-blue.svg';
 import Loading from '../Loading';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 const HomePage = () => {

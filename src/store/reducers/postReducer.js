@@ -45,7 +45,7 @@ export default function reducerSwitch (state = initialState, action){
                     cookiesHidden:action.payload
                 }
         case TOGGLE_HAMBURGER :
-                console.log('THR')
+                console.log('THR', action.payload)
                 return {
                     ...state,
                     hamburgerActive: !action.payload
